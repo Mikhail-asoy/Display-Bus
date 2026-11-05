@@ -4,6 +4,9 @@ on: workflow_dispatch
 jobs:
   build:
     runs-on: macos-latest
+    defaults:
+      run:
+        working-directory: inti-busdisplay-main
     steps:
       - uses: actions/checkout@v4
       - uses: subosito/flutter-action@v2
@@ -19,4 +22,4 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: app-ipa
-          path: app.ipa
+          path: inti-busdisplay-main/app.ipa
