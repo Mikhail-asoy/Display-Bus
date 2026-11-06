@@ -12,6 +12,10 @@ jobs:
       - uses: subosito/flutter-action@v2
         with:
           channel: stable
+      - name: Buat file .env
+        env:
+          DOTENV: ${{ secrets.DOTENV }}
+        run: printf '%s\n' "$DOTENV" > .env
       - run: flutter pub get
       - name: Siapkan konfigurasi iOS
         run: flutter build ios --release --config-only --no-codesign
